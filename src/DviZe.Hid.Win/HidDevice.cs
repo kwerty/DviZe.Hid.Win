@@ -15,7 +15,7 @@ namespace Kwerty.DviZe.Hid.Win;
 internal sealed class HidDevice(HidEnumeratorSession session, HidOptions options, string devicePath, ILoggerFactory loggerFactory)
     : Worker, IHidDevice
 {
-    readonly internal HidOptions options = options;
+    readonly HidOptions options = options;
     readonly internal string devicePath = devicePath;
     readonly DevicePathInfo devicePathInfo = new(devicePath);
     readonly ILogger logger = loggerFactory.CreateLogger<HidDevice>();
