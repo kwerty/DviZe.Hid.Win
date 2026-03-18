@@ -26,17 +26,17 @@ var hidSubscription = await hidEnumerator.SubscribeAsync(evt =>
 
 ## Feature Reports
 
-For this example, imagine a gaming mouse whose configuration can be read and/or written via a feature report.
+Consider a gaming mouse whose configuration can be read/written via a feature report.
 
 The manufacturer has defined the feature report as follows:
 
-| Byte(s) | Field | Type | Description
-| --- | --- | --- | ---
-| 0 | Report ID | `byte` | Always `0x03`.
-| 1-2 | Mouse DPI | `uint16` (Little endian) | DPI value between 1000-5000.
-| 3 | Game Mode | `byte` | `1` = enabled, `0` = disabled.
+| Byte(s)   | Field     | Type                      | Description
+| :--       | :--       | :--                       | :--
+| 0         | Report ID | `byte`                    | Always `0x03`.
+| 1-2       | Mouse DPI | `uint16` (Little endian)  | DPI value between 1000-5000.
+| 3         | Game Mode | `byte`                    | `1` = enabled, `0` = disabled.
 
-We'll use an [IHidFeatureReportReaderWriter](docs/IHidFeatureReportReaderWriter.md) which we obtain via [IHidDevice](docs/IHidDevice.md).[GetFeatureReportReaderWriterAsync](docs/IHidDevice.md#GetFeatureReportReaderWriterAsync).
+To read and write the report, obtain an [IHidFeatureReportReaderWriter](docs/IHidFeatureReportReaderWriter.md) from [IHidDevice.GetFeatureReportReaderWriterAsync](docs/IHidDevice.md#GetFeatureReportReaderWriterAsync).
 
 ```csharp
 using var featureRw = await device.GetFeatureReportReaderWriterAsync(HidAccessMode.None, cancellationToken);
@@ -64,7 +64,7 @@ featureRw.Write(buffer);
 
 ## Input/Output Reports
 
-For this example, imagine an RGB physical push button which connects to your computer via USB. Something you might hypothetically use to acknowledge alerts. To provide this functionality the manufacturer uses input reports to raise button press/release events, and output reports for setting the RGB colour.
+Consider a RGB physical push button which connects to your computer via USB. Something you might hypothetically use to acknowledge alerts. To provide this functionality the manufacturer uses input reports to raise button press/release events, and output reports for setting the RGB colour.
 
 The manufacturer has defined the input report (button events) as follows:
 
@@ -82,7 +82,7 @@ And defines the output report (set RGB color) as follows:
 | 2     | Green     | `byte`    | 0-255.
 | 3     | Blue      | `byte`    | 0-255.
 
-We'll obtain a `Stream` (`System.IO`) by calling [IHidDevice](docs/IHidDevice.md).[GetStreamAsync](docs/IHidDevice.md#GetStreamAsync).
+To read input reports and write output reports, obtain a `Stream` (`System.IO`) via [IHidDevice.GetStreamAsync](docs/IHidDevice.md#GetStreamAsync).
 
 ```csharp
 using var stream = await device.GetStreamAsync(HidAccessMode.ReadWrite, cancellationToken);
