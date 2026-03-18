@@ -101,10 +101,6 @@ while (true)
         {
             Console.WriteLine("Button was pressed");
         }
-        else
-        {
-            Console.WriteLine("Button was released");
-        }
     }
 }
 
