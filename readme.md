@@ -33,7 +33,7 @@ The manufacturer has defined the feature report as follows:
 | Byte(s) | Field | Type | Description
 | --- | --- | --- | ---
 | 0 | Report ID | `byte` | Always `0x03`.
-| 1–2 | Mouse DPI | `uint16` (Little endian) | DPI value between 1000-5000.
+| 1-2 | Mouse DPI | `uint16` (Little endian) | DPI value between 1000-5000.
 | 3 | Game Mode | `byte` | `1` = enabled, `0` = disabled.
 
 We'll use an [IHidFeatureReportReaderWriter](docs/IHidFeatureReportReaderWriter.md) which we obtain via [IHidDevice](docs/IHidDevice.md).[GetFeatureReportReaderWriterAsync](docs/IHidDevice.md#GetFeatureReportReaderWriterAsync).
@@ -68,19 +68,19 @@ For this example, imagine an RGB physical push button which connects to your com
 
 The manufacturer has defined the input report (button events) as follows:
 
-| Byte | Field | Type | Description
-| --- | --- | --- | ---
-| 0 | Report ID | `byte` | Always `0x01`.
-| 1 | Button Status | `byte` | `1` = pressed, `0` = released.
+| Byte  | Field         | Type      | Description
+| :--   | :--           | :--       | :--
+| 0     | Report ID     | `byte`    | Always `0x01`.
+| 1     | Button Status | `byte`    | `1` = pressed, `0` = released.
 
 And defines the output report (set RGB color) as follows:
 
-| Byte | Field | Type | Description
-| --- | --- | --- | ---
-| 0 | Report ID | `byte` | Always `0x02`.
-| 1 | Red | `byte` | 0–255.
-| 2 | Green | `byte` | 0–255.
-| 3 | Blue | `byte` | 0–255.
+| Byte  | Field     | Type      | Description
+| :--   | :--       | :--       | :--
+| 0     | Report ID | `byte`    | Always `0x02`.
+| 1     | Red       | `byte`    | 0-255.
+| 2     | Green     | `byte`    | 0-255.
+| 3     | Blue      | `byte`    | 0-255.
 
 We'll obtain a `Stream` (`System.IO`) by calling [IHidDevice](docs/IHidDevice.md).[GetStreamAsync](docs/IHidDevice.md#GetStreamAsync).
 
