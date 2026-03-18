@@ -39,7 +39,7 @@ Dispose the returned `IDisposable` to unsubscribe.
 | Property | Type | Description
 | --- | --- | ---
 | `Device` | `IHidDevice` | The device that raised the event.
-| `EventType` | `HidEventType` | Either `DeviceMounted` or `DeviceDismounted`.
+| `EventType` | `HidEventType` | `HidEventType.DeviceMounted` or `HidEventType.DeviceDismounted`.
 
 ## InstallAsync
 
