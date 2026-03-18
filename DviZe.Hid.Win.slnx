@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../DviZe.Common/src/DviZe.Common.csproj" />
+  <Project Path="src/DviZe.Hid/DviZe.Hid.csproj" />
+  <Project Path="src/DviZe.Hid.Win/DviZe.Hid.Win.csproj" />
+</Solution>

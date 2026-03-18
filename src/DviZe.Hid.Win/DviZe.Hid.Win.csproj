@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows7.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <RootNamespace>Kwerty.DviZe.Hid.Win</RootNamespace>
+    <Version>1.0.0.0</Version>
+    <Copyright>Copyright (c) 2026 Kwerty</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DviZe.Common\src\DviZe.Common.csproj" />
+    <ProjectReference Include="..\DviZe.Hid\DviZe.Hid.csproj" />
+  </ItemGroup>
+
+</Project>
