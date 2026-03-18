@@ -33,7 +33,7 @@ The manufacturer has defined the feature report as follows:
 | Byte(s) | Field | Type | Description
 | --- | --- | --- | ---
 | 0 | Report ID | `byte` | Always `0x03`.
-| 1–2 | Mouse DPI | `uint16` (Little endian) | DPI value between 1000-16000.
+| 1–2 | Mouse DPI | `uint16` (Little endian) | DPI value between 1000-5000.
 | 3 | Game Mode | `byte` | `1` = enabled, `0` = disabled.
 
 We'll use an [IHidFeatureReportReaderWriter](docs/IHidFeatureReportReaderWriter.md) which we obtain via [IHidDevice](docs/IHidDevice.md).[GetFeatureReportReaderWriterAsync](docs/IHidDevice.md#GetFeatureReportReaderWriterAsync).
@@ -53,7 +53,7 @@ var gameModeEnabled = Convert.ToBoolean(buffer[3]);
 
 // Update mouse configuration.
 
-mouseDpi = 16_000;
+mouseDpi = 1600;
 gameModeEnabled = true;
 
 BinaryPrimitives.WriteUInt16LittleEndian(buffer.AsSpan(1, 2), mouseDpi);
