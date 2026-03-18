@@ -13,7 +13,7 @@ Represents a mounted HID device.
 | `InterfaceNumber` | `int?` | Interface number
 | `VendorName` | `string` | Vendor name
 | `ProductName` | `string` | Product name
-| `SerialNumber` | `string` | Serial number
+| `SerialNumber` | `string` | Serial number or `null`
 | `ReleaseNumber` | `int` | Device version (typically expressed in BCD format, eg.. `0x0210` for `v2.1.0`)
 | `PlatformDeviceId` | `string` | Uniquely identifies the device
 | `PlatformContainerId` | `string` | Used to group multiple HID interfaces that belong to the same physical device
