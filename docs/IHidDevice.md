@@ -6,23 +6,23 @@ Represents a mounted HID device.
 
 ## Properties
 
-| Property | Type | Description
-| -------- | ---- | -----------
-| `VendorId` | `int` | Vendor ID
-| `ProductId` | `int` | Product ID
-| `InterfaceNumber` | `int?` | Interface number
-| `VendorName` | `string` | Vendor name
-| `ProductName` | `string` | Product name
-| `SerialNumber` | `string` | Serial number or `null`
-| `ReleaseNumber` | `int` | Device version (typically expressed in BCD format, eg.. `0x0210` for `v2.1.0`)
-| `PlatformDeviceId` | `string` | Uniquely identifies the device
-| `PlatformContainerId` | `string` | Used to group multiple HID interfaces that belong to the same physical device
-| `Usage` | `int` | HID usage
-| `UsagePage` | `int` | HID usage page
-| `InputReportSize` | `int` | Size of input reports in bytes
-| `OutputReportSize` | `int` | Size of output reports in bytes
-| `FeatureReportSize` | `int` | Size of feature reports in bytes
-| `Dismounted` | `Task` | A task that completes when the device is dismounted
+| Property                  | Type      | Description
+| :--                       | :--       | :--
+| `VendorId`                | `int`     | Vendor ID.
+| `ProductId`               | `int`     | Product ID.
+| `InterfaceNumber`         | `int?`    | Interface number.
+| `VendorName`              | `string`  | Vendor name.
+| `ProductName`             | `string`  | Product name.
+| `SerialNumber`            | `string`  | Serial number or `null`.
+| `ReleaseNumber`           | `int`     | Device version (typically expressed in BCD format, eg.. `0x0210` for `v2.1.0`).
+| `PlatformDeviceId`        | `string`  | Uniquely identifies the device.
+| `PlatformContainerId`     | `string`  | Used to group multiple HID interfaces that belong to the same physical device.
+| `Usage`                   | `int`     | HID usage.
+| `UsagePage`               | `int`     | HID usage page.
+| `InputReportSize`         | `int`     | Size of input reports in bytes.
+| `OutputReportSize`        | `int`     | Size of output reports in bytes.
+| `FeatureReportSize`       | `int`     | Size of feature reports in bytes.
+| `Dismounted`              | `Task`    | A task that completes when the device is dismounted.
 
 ## GetHandleAsync
 
@@ -41,20 +41,20 @@ Throws `HidException` if the device has dismounted, access was denied (`HidAcces
 
 ### HidAccessMode
 
-| Value | Description
-| --- | ---
-| `None` | No access.
-| `Read` | Read access (input reports).
-| `Write` | Write access (output reports).
-| `ReadWrite` | Read and write access.
+| Value         | Description
+| :--           | :--
+| `None`        | No access.
+| `Read`        | Read access (input reports).
+| `Write`       | Write access (output reports).
+| `ReadWrite`   | Read and write access.
 
 ### HidHandleOptions
 
-| Property | Type | Default | Description
-| --- | --- | --- | ---
-| `AccessMode` | `HidAccessMode` | `HidAccessMode.None` | The access mode.
-| `ExclusiveRead` | `bool` | `false` | Exclusive read access.
-| `ExclusiveWrite` | `bool` | `false` | Exclusive write access.
+| Property          | Type              | Default               | Description
+| :--               | :--               | :--                   | :--
+| `AccessMode`      | `HidAccessMode`   | `HidAccessMode.None`  | The access mode.
+| `ExclusiveRead`   | `bool`            | `false`               | Exclusive read access.
+| `ExclusiveWrite`  | `bool`            | `false`               | Exclusive write access.
 
 ## GetFeatureReportReaderWriterAsync
 
