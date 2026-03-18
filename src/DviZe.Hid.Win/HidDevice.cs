@@ -223,7 +223,7 @@ internal sealed class HidDevice(HidEnumeratorSession session, HidOptions options
 
     static string GetContainerId(string longInstanceId)
     {
-        int nodeResult = Win32.CM_Locate_DevNode(out var nodeHandle, longInstanceId, Win32.CM_LOCATE_DEVNODE_NORMAL);
+        var nodeResult = Win32.CM_Locate_DevNode(out var nodeHandle, longInstanceId, Win32.CM_LOCATE_DEVNODE_NORMAL);
         if (nodeResult != Win32.CR_SUCCESS)
         {
             throw Win32Exception.FromError(nameof(Win32.CM_Locate_DevNode), nodeResult);
