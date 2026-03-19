@@ -14,7 +14,7 @@ Reads a feature report into `buffer`.
 
 The first byte contains the desired report ID.
 
-Throws `InvalidOperationException` if the buffer size does not match [IHidDevice](IHidDevice.md).[FeatureReportSize](IHidDevice.md#Properties).
+Throws `InvalidOperationException` if the buffer size does not match [IHidDevice.FeatureReportSize](IHidDevice.md#Properties).
 
 Throws `HidException` if the device has dismounted or the handle is closed.
 
@@ -28,7 +28,7 @@ Writes a feature report from `buffer`.
 
 The first byte contains the report ID.
 
-Throws `InvalidOperationException` if the buffer size does not match [IHidDevice](IHidDevice.md).[FeatureReportSize](IHidDevice.md#Properties).
+Throws `InvalidOperationException` if the buffer size does not match [IHidDevice.FeatureReportSize](IHidDevice.md#Properties).
 
 Throws `HidException` if the device has dismounted or the handle is closed.
 
@@ -38,4 +38,6 @@ Throws `HidException` if the device has dismounted or the handle is closed.
 public void Dispose();
 ```
 
-Prevents future reads/writes and closes the handle.
+If a handle is owned it will be closed.
+
+In the current implementation this is a no-op if no handle is owned, but disposal is still recommended to ensure compatibility with future implementations.

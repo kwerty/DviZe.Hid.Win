@@ -31,9 +31,11 @@ public Task<IHidHandle> GetHandleAsync(HidAccessMode accessMode, CancellationTok
 public Task<IHidHandle> GetHandleAsync(HidHandleOptions options, CancellationToken cancellationToken = default);
 ```
 
-Opens a handle (`IHidHandle`) to the device.
+Creates a handle (`IHidHandle`) for the device.
 
 Throws `HidException` if the device has dismounted, access was denied (`HidAccessException`), or there was a conflict with another handle (`HidAccessConflictException`).
+
+`IHandle` must be disposed to close the handle.
 
 ### HidAccessMode
 
@@ -62,9 +64,13 @@ public Task<IHidFeatureReportReaderWriter> GetFeatureReportReaderWriterAsync(IHi
 
 Creates an [IHidFeatureReportReaderWriter](IHidFeatureReportReaderWriter.md) for reading and/or writing feature reports.
 
+If a handle is supplied, the caller retains handle ownership. Otherwise a new handle is created, and `IHidFeatureReportReaderWriter` will own it.
+
 Throws `HidException` if the device has dismounted or the handle is closed.
 
-In cases where a handle must be created, additional exceptions may be thrown. See `GetHandleAsync`.
+In cases where a handle must be created, `HidAccessException` or `HidAccessConflictException` may also be thrown.
+
+`IHidFeatureReportReaderWriter` must be disposed regardless of handle ownership.
 
 ## GetStreamAsync
 
@@ -76,6 +82,10 @@ public Task<Stream> GetStreamAsync(IHidHandle handle, CancellationToken cancella
 
 Creates a `Stream` (`System.IO`) for reading input reports and/or writing output reports.
 
+If a handle is supplied, the caller retains handle ownership. Otherwise a new handle is created, and `Stream` will own it.
+
 Throws `HidException` if the device has dismounted or the handle is closed.
 
-In cases where a handle must be created, additional exceptions may be thrown. See `GetHandleAsync`.
+In cases where a handle must be created, `HidAccessException` or `HidAccessConflictException` may also be thrown.
+
+`Stream` must be disposed regardless of handle ownership.
