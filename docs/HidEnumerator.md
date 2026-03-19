@@ -30,9 +30,7 @@ public Task<IDisposable> SubscribeAsync(HidEventType filter, Action<HidEvent> ca
 
 Subscribes to HID device events.
 
-`callback` will be invoked once for each currently mounted device, and again any time a device is mounts or dismounts in future.
-
-Callbacks are invoked one at a time, never concurrently.
+`callback` will be invoked once for each currently mounted device, and again any time a device is mounted or dismounted in future. Callbacks are invoked one at a time, never concurrently.
 
 Dispose the returned `IDisposable` to unsubscribe.
 

@@ -4,7 +4,9 @@ A .NET 10 class library for enumerating and communicating with HID devices in Wi
 
 ## Enumerating HID Devices
 
-Create an [HidEnumerator](docs/HidEnumerator.md) and call [SubscribeAsync](docs/HidEnumerator.md#SubscribeAsync) with a callback to receive [HidEvent](docs/HidEnumerator.md#HidEvent) notifications for all current devices, as well as future events.
+Create an [HidEnumerator](docs/HidEnumerator.md) and call [SubscribeAsync](docs/HidEnumerator.md#SubscribeAsync) with a callback to receive [HidEvent](docs/HidEnumerator.md#HidEvent) notifications.
+
+Your callback will be invoked once for each currently mounted device, and again any time a device is mounted or dismounted in future.
 
 Each [HidEvent](docs/HidEnumerator.md#HidEvent) has an `EventType` ([HidEventType](docs/HidEnumerator.md#HidEvent)) and a `Device` ([IHidDevice](docs/IHidDevice.md)).
 
