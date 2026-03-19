@@ -19,7 +19,7 @@ public HidEnumerator(HidOptions options, ILoggerFactory loggerFactory);
 | `OnDemandOptions`     | `OnDemandOptions`*    | `OnDemandOptions.Default`*    | Controls the session lifecycle when `InstallOnDemand == true`.
 | `MetaDataRetryPolicy` | `RetryPolicy`*        | `RetryPolicy.None`*           | Retry policy applied when device initialization fails due to an exclusive access conflict.
 
-\*Defined in [DviZe.Common](https://github.com/kwerty/DviZe.Common).
+\* Defined in [DviZe.Common](https://github.com/kwerty/DviZe.Common).
 
 ## SubscribeAsync
 
