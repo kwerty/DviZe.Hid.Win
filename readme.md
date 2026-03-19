@@ -2,7 +2,7 @@
 
 A .NET 10 class library for enumerating and communicating with HID devices in Windows.
 
-## Enumerating
+## Enumerating HID Devices
 
 Create an [HidEnumerator](docs/HidEnumerator.md) and call [SubscribeAsync](docs/HidEnumerator.md#SubscribeAsync) with a callback to receive [HidEvent](docs/HidEnumerator.md#HidEvent) notifications.
 
