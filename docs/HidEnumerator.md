@@ -28,7 +28,11 @@ public Task<IDisposable> SubscribeAsync(Action<HidEvent> callback, CancellationT
 public Task<IDisposable> SubscribeAsync(HidEventType filter, Action<HidEvent> callback, CancellationToken cancellationToken = default);
 ```
 
-Subscribes to HID events.
+Subscribes to HID device events.
+
+The callback will be invoked once for each currently mounted device, and again any time a device is mounts or dismounts in future.
+
+Callbacks are invoked one at a time, never concurrently.
 
 Dispose the returned `IDisposable` to unsubscribe.
 
