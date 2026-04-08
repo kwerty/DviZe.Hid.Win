@@ -17,7 +17,7 @@ internal sealed class HidHandle(HidDevice device, HidHandleOptions options, Retr
     readonly ILogger logger = loggerFactory.CreateLogger<HidHandle>();
     SafeFileHandle fileHandle;
     internal bool hasAttachedStream;
-    internal bool closed;
+    internal volatile bool closed;
 
     internal HidAccessMode AccessMode => options.AccessMode;
 

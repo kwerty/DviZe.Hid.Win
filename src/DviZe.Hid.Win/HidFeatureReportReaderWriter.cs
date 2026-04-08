@@ -10,7 +10,7 @@ namespace Kwerty.DviZe.Hid.Win;
 
 internal sealed class HidFeatureReportReaderWriter(SafeFileHandle fileHandle, int featureReportSize) : IHidFeatureReportReaderWriter
 {
-	bool disposed;
+	volatile bool disposed;
 
     public void Read(Span<byte> buffer)
     {
