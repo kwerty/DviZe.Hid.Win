@@ -8,11 +8,11 @@ public sealed class HidOptions
 {
     public bool InstallOnDemand { get; init; } = true;
 
-    public OnDemandOptions OnDemandOptions
+    public OnDemandReleasePolicy OnDemandReleasePolicy
     {
         get;
         init => field = value ?? throw new ArgumentNullException(nameof(value));
-    } = OnDemandOptions.Default;
+    } = OnDemandReleasePolicy.Default;
 
     public RetryPolicy MetaDataRetryPolicy
     {

@@ -13,11 +13,11 @@ public HidEnumerator(HidOptions options, ILoggerFactory loggerFactory);
 
 ### HidOptions
 
-| Property              | Type                  | Default                       | Description
-| :--                   | :--                   | :--                           | :--
-| `InstallOnDemand`     | `bool`                | `true`                        | Set to `false` to manage installation manually via `InstallAsync`.
-| `OnDemandOptions`     | `OnDemandOptions`*    | `OnDemandOptions.Default`*    | Controls the session lifecycle when `InstallOnDemand == true`.
-| `MetaDataRetryPolicy` | `RetryPolicy`*        | `RetryPolicy.None`*           | Retry policy applied when device initialization fails due to an exclusive access conflict.
+| Property                  | Type                      | Default                           | Description
+| :--                       | :--                       | :--                               | :--
+| `InstallOnDemand`         | `bool`                    | `true`                            | Set to `false` to manage installation manually via `InstallAsync`.
+| `OnDemandReleasePolicy`   | `OnDemandReleasePolicy`*  | `OnDemandReleasePolicy.Default`*  | Controls the session lifecycle when `InstallOnDemand == true`.
+| `MetaDataRetryPolicy`     | `RetryPolicy`*            | `RetryPolicy.None`*               | Retry policy applied when device initialization fails due to an exclusive access conflict.
 
 \* Defined in [DviZe.Common](https://github.com/kwerty/DviZe.Common).
 

@@ -25,7 +25,7 @@ public sealed class HidEnumerator : IHidEnumerator
         this.options = options;
         this.loggerFactory = loggerFactory;
         sessionProvider = options.InstallOnDemand
-            ? new OnDemand<HidEnumeratorSession>(options.OnDemandOptions, CreateSession, loggerFactory)
+            ? new OnDemand<HidEnumeratorSession>(new OnDemandOptions { ReleasePolicy = options.OnDemandReleasePolicy }, CreateSession, loggerFactory)
             : new RunSingle<HidEnumeratorSession>(loggerFactory);
         subscriptionRunner = new Runner<HidSubscriptionWorker>(loggerFactory);
     }
