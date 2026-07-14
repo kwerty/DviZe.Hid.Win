@@ -14,6 +14,8 @@ internal sealed class HidSubscriptionWorker(HidSubscription subscription, IWorke
     {
         (session, sessionReleaser) = await sessionProvider.LeaseAsync(startingContext.CancellationToken).ConfigureAwait(false);
         session.AddSubscription(subscription);
+        startingContext.Complete();
+        session.StoppingToken.Register(() => Context.TryStop());
     }
 
     protected override Task OnStoppingAsync()
